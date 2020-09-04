@@ -7,12 +7,12 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/\
 ${LICENSE};md5=3775480a712fc46a69647678acb234cb"
 
 FILESPATH =+ "${WORKSPACE}/:"
-SRC_URI  = "file://vendor/qcom/opensource/qal/mcs/"
-S = "${WORKDIR}/vendor/qcom/opensource/qal/mcs/"
+SRC_URI  = "file://audio/mm-audio/audio_mcs/mcs/"
+S = "${WORKDIR}/audio/mm-audio/audio_mcs/mcs/"
 
 EXTRA_OECONF += "--with-acdbdata=${STAGING_INCDIR}/acdbdata"
 
-DEPENDS = "osal qal glib-2.0"
+DEPENDS = "ar-osal qal glib-2.0"
 PR = "r0"
 
 EXTRA_OECONF += "--with-glib"
