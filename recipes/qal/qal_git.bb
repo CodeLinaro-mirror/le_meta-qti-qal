@@ -12,7 +12,7 @@ SRC_URI += "file://${BASEMACHINE}/"
 
 S = "${WORKDIR}/vendor/qcom/opensource/qal/"
 PR = "r0"
-DEPENDS = "media-headers tinyalsa tinycompress gsl expat glib-2.0 capiv2-headers acdbdata audio-route agm "
+DEPENDS = "media-headers tinyalsa tinycompress ar-gsl expat glib-2.0 capiv2-headers acdbdata audio-route agm "
 
 EXTRA_OECONF += "--with-glib"
 EXTRA_OECONF += "--with-gecko=${STAGING_INCDIR}/gecko"
