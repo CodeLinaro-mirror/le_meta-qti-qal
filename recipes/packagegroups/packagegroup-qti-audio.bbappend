@@ -3,6 +3,6 @@
 LICENSE = "BSD-3-Clause"
 
 RDEPENDS_packagegroup-qti-audio += ' \
-    qal \
+    pal \
     mcs \
 '

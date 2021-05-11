@@ -1,16 +1,16 @@
 inherit autotools pkgconfig
 
-DESCRIPTION = "qal"
+DESCRIPTION = "pal"
 SECTION = "multimedia"
 LICENSE = "BSD"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/\
 ${LICENSE};md5=3775480a712fc46a69647678acb234cb"
 
 FILESPATH =+ "${WORKSPACE}/:"
-SRC_URI  = "file://vendor/qcom/opensource/qal/"
+SRC_URI  = "file://vendor/qcom/opensource/arpal-lx/"
 SRC_URI += "file://${BASEMACHINE}/"
 
-S = "${WORKDIR}/vendor/qcom/opensource/qal/"
+S = "${WORKDIR}/vendor/qcom/opensource/arpal-lx/"
 PR = "r0"
 DEPENDS = "media-headers tinyalsa tinycompress ar-gsl expat glib-2.0 capiv2-headers acdbdata audio-route agm "
 
