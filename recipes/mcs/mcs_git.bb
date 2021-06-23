@@ -12,7 +12,7 @@ S = "${WORKDIR}/audio/mm-audio/audio_mcs/mcs/"
 
 EXTRA_OECONF += "--with-acdbdata=${STAGING_INCDIR}/acdbdata"
 
-DEPENDS = "ar-osal qal glib-2.0"
+DEPENDS = "ar-osal pal glib-2.0"
 PR = "r0"
 
 EXTRA_OECONF += "--with-glib"
