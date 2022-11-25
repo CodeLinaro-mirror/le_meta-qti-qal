@@ -1,1 +1,0 @@
-QTIPAL:=pal
