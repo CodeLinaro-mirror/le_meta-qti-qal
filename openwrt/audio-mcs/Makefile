@@ -4,55 +4,55 @@ PKG_NAME:=audio-mcs
 PKG_RELEASE:=1
 PKG_FIXUP:=autoreconf
 
-LOCAL_SRC:=$(TOPDIR)/qca/src/vendor/qcom/opensource/qal/mcs/
-include $(INCLUDE_DIR)/local-development.mk
-ifeq ($(DUMP)$(PKG_VERSION),)
-  PKG_REV:=$(shell git ls-remote $(PKG_SOURCE_URL) $(PKG_BRANCH) | cut -b -7)
-  PKG_VERSION:=g$(PKG_REV)
-endif
+LOCAL_SRC ?= $(TOPDIR)/src/audio/mm-audio/audio_mcs/mcs/
 
 include $(INCLUDE_DIR)/package.mk
 
 define Package/audio-mcs
   SECTION:=AUDIO
   CATEGORY:=AUDIO
-  DEPENDS:= +osal +qal +glib2 +acdb
   MAINTAINER:=QTI MM Audio
   TITLE:=MCS
-  SUBMENU:=CASA
+  DEPENDS:= +libcutils +glib2 +ar-osal +acdb +acdbdata +pal
 endef
 
 define Package/audio-mcs/description
-  This package contails mcs
+  AUDIO MCS
 endef
 
 CONFIGURE_ARGS += \
-                  --with-openwrt \
-                  --with-glib
+	--with-openwrt \
+	--with-glib
 
 TARGET_CFLAGS += \
-                 -I$(STAGING_DIR)/usr/include/qal/ \
-                 -I$(STAGING_DIR)/usr/include/osal/ \
-                 -I$(STAGING_DIR)/usr/include/glib-2.0/ \
-                 -I$(STAGING_DIR)/usr/include/acdb/ \
-                 -I$(STAGING_DIR)/usr/include/acdbdata/ \
-                 -DFEATURE_IPQ_OPENWRT
+	-DFEATURE_IPQ_OPENWRT \
+	-I$(STAGING_DIR)/usr/include/pal/ \
+	-I$(STAGING_DIR)/usr/include/ar-osal/ \
+	-I$(STAGING_DIR)/usr/include/glib-2.0/ \
+	-I$(STAGING_DIR)/usr/include/acdb/ \
+	-I$(STAGING_DIR)/usr/include/acdbdata/ \
+	-I$(STAGING_DIR)/usr/include/ats/ \
+	-I$(TOPDIR)/src/audio/mm-audio-headers/acdbdata/
 
 TARGET_LDFLAGS += \
-                 -L$(STAGING_DIR)/usr/lib/
+	-L$(STAGING_DIR)/usr/lib/
+
+define Build/Prepare
+mkdir -p $(PKG_BUILD_DIR)/
+	$(CP) $(LOCAL_SRC)/* $(PKG_BUILD_DIR)/
+endef
 
 define Build/InstallDev
-	$(INSTALL_DIR) $(1)/usr/include/mcs/
-	$(INSTALL_DIR) $(1)/usr/lib/
+	$(INSTALL_DIR) $(STAGING_DIR)
+	mkdir -p $(1)/usr/include/mcs/
+	mkdir -p $(1)/usr/lib/
 	$(CP) $(PKG_BUILD_DIR)/inc/*.h $(1)/usr/include/mcs/
 	$(CP) $(PKG_BUILD_DIR)/.libs/libaudiomcs.so $(1)/usr/lib/
 endef
 
 define Package/audio-mcs/install
 	$(INSTALL_DIR) $(1)/usr/lib/
-	$(INSTALL_DIR) $(1)/usr/bin/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/.libs/libaudiomcs.so $(1)/usr/lib/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/.libs/mcs_test $(1)/usr/bin/
+	$(CP) $(PKG_BUILD_DIR)/.libs/libaudiomcs.so $(1)/usr/lib/
 endef
 
 $(eval $(call BuildPackage,audio-mcs))
