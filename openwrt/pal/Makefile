@@ -51,6 +51,7 @@ define Build/InstallDev
 	$(INSTALL_DIR) $(STAGING_DIR)
 	mkdir -p $(1)/usr/include/pal/
 	mkdir -p $(1)/usr/lib
+	mkdir -p $(1)/etc
 	$(CP) $(PKG_BUILD_DIR)/*.h $(1)/usr/include/pal/
 	$(CP) $(PKG_BUILD_DIR)/device/inc/ $(1)/usr/include/pal/
 	$(CP) $(PKG_BUILD_DIR)/resource_manager/inc/ $(1)/usr/include/pal/
@@ -58,11 +59,14 @@ define Build/InstallDev
 	$(CP) $(PKG_BUILD_DIR)/stream/inc/ $(1)/usr/include/pal/
 	$(CP) $(PKG_BUILD_DIR)/utils/inc/ $(1)/usr/include/pal/
 	$(CP) $(PKG_BUILD_DIR)/.libs/libpal.so* $(1)/usr/lib/
+	$(CP) ./files/sdxpinn/* $(1)/etc
 endef
 
 define Package/pal/install
 	$(INSTALL_DIR) $(1)/usr/lib
+	$(INSTALL_DIR) $(1)/etc
 	$(CP) $(PKG_BUILD_DIR)/.libs/libpal.so* $(1)/usr/lib
+	$(CP) ./files/sdxpinn/* $(1)/etc
 endef
 
 $(eval $(call BuildPackage,pal))
