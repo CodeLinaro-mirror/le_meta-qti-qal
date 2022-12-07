@@ -59,14 +59,22 @@ define Build/InstallDev
 	$(CP) $(PKG_BUILD_DIR)/stream/inc/ $(1)/usr/include/pal/
 	$(CP) $(PKG_BUILD_DIR)/utils/inc/ $(1)/usr/include/pal/
 	$(CP) $(PKG_BUILD_DIR)/.libs/libpal.so* $(1)/usr/lib/
+ifeq ($(TARGET_MACHINE),sdx35)
+	$(CP) ./files/sdxbaagha/* $(1)/etc
+else ifeq ($(TARGET_MACHINE),sdx75)
 	$(CP) ./files/sdxpinn/* $(1)/etc
+endif
 endef
 
 define Package/pal/install
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(INSTALL_DIR) $(1)/etc
 	$(CP) $(PKG_BUILD_DIR)/.libs/libpal.so* $(1)/usr/lib
+ifeq ($(TARGET_MACHINE),sdx35)
+	$(CP) ./files/sdxbaagha/* $(1)/etc
+else ifeq ($(TARGET_MACHINE),sdx75)
 	$(CP) ./files/sdxpinn/* $(1)/etc
+endif
 endef
 
 $(eval $(call BuildPackage,pal))
