@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Copyright (c) 2022 Qualcomm Innovation Center, Inc.                    -->
+<!-- All rights reserved.                                                   -->
+<!-- SPDX-License-Identifier: BSD-3-Clause-Clear                            -->
 <!-- Copyright (c) 2015-2018, 2019-2020 The Linux Foundation.               -->
 <!-- All rights reserved.                                                   -->
 <!--                                                                        -->
@@ -95,11 +98,13 @@
         <ctl name="SpkrLeft BOOST Switch" value="1" />
         <ctl name="SpkrLeft VISENSE Switch" value="1" />
         <ctl name="SpkrLeft SWR DAC_Port Switch" value="1" />
+        <ctl name="PCM Playback Volume" value="127 127" />
     </path>
 
     <path name="speaker-mic">
         <path name="dmic2" />
         <ctl name="DEC6 Volume" value="110" />
+        <ctl name="PGA Capture Volume" value="119 119" />
     </path>
 
     <path name="handset">
