@@ -13,7 +13,7 @@ define Package/audio-mcs
   CATEGORY:=AUDIO
   MAINTAINER:=QTI MM Audio
   TITLE:=MCS
-  DEPENDS:= +libcutils +glib2 +ar-osal +acdb +acdbdata +pal
+  DEPENDS:= +libcutils +glib2 +ar-osal +acdb +acdbdata +pal +ats
 endef
 
 define Package/audio-mcs/description
