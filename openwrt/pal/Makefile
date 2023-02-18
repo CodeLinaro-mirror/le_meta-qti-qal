@@ -47,6 +47,7 @@ define Build/Prepare
 	$(CP) $(LOCAL_SRC)/* $(PKG_BUILD_DIR)/
 endef
 
+ifeq ($(BOARD),sdx75)
 define Build/InstallDev
 	$(INSTALL_DIR) $(STAGING_DIR)
 	mkdir -p $(1)/usr/include/pal/
@@ -61,12 +62,38 @@ define Build/InstallDev
 	$(CP) $(PKG_BUILD_DIR)/.libs/libpal.so* $(1)/usr/lib/
 	$(CP) ./files/sdxpinn/* $(1)/etc
 endef
+else ifeq ($(BOARD),sdx35)
+define Build/InstallDev
+	$(INSTALL_DIR) $(STAGING_DIR)
+	mkdir -p $(1)/usr/include/pal/
+	mkdir -p $(1)/usr/lib
+	mkdir -p $(1)/etc
+	$(CP) $(PKG_BUILD_DIR)/*.h $(1)/usr/include/pal/
+	$(CP) $(PKG_BUILD_DIR)/device/inc/ $(1)/usr/include/pal/
+	$(CP) $(PKG_BUILD_DIR)/resource_manager/inc/ $(1)/usr/include/pal/
+	$(CP) $(PKG_BUILD_DIR)/session/inc/ $(1)/usr/include/pal/
+	$(CP) $(PKG_BUILD_DIR)/stream/inc/ $(1)/usr/include/pal/
+	$(CP) $(PKG_BUILD_DIR)/utils/inc/ $(1)/usr/include/pal/
+	$(CP) $(PKG_BUILD_DIR)/.libs/libpal.so* $(1)/usr/lib/
+	$(CP) ./files/sdxbaagha/* $(1)/etc
+endef
+endif
 
+
+ifeq ($(BOARD),sdx75)
 define Package/pal/install
 	$(INSTALL_DIR) $(1)/usr/lib
 	$(INSTALL_DIR) $(1)/etc
 	$(CP) $(PKG_BUILD_DIR)/.libs/libpal.so* $(1)/usr/lib
 	$(CP) ./files/sdxpinn/* $(1)/etc
 endef
+else ifeq ($(BOARD),sdx35)
+define Package/pal/install
+	$(INSTALL_DIR) $(1)/usr/lib
+	$(INSTALL_DIR) $(1)/etc
+	$(CP) $(PKG_BUILD_DIR)/.libs/libpal.so* $(1)/usr/lib
+	$(CP) ./files/sdxbaagha/* $(1)/etc
+endef
+endif
 
 $(eval $(call BuildPackage,pal))
