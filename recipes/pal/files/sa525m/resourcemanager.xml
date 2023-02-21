@@ -113,7 +113,9 @@
                 <name>PAL_STREAM_VOICE_CALL</name>
                 <sidetone_mode>OFF</sidetone_mode>
                 <devicePP-metadata>
+                <custom-config key="dm-ec">
                     <kvpair key="0xAD000000" value="0xAD000008"/>
+                </custom-config>
                     <!-- VOICE_FLUENCE_SMECNS -->
                     <!-- These key and value are derived from kvh2xml.h and should always be in sync with it -->
                 </devicePP-metadata>
