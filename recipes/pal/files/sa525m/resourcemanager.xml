@@ -29,6 +29,7 @@
 <resource_manager_info>
     <config_params>
         <param key="max_sessions" value="128"/>
+        <param key="skip_stream_restart" value="1"/>
     </config_params>
     <config_voice>
         <vsid>0xB3000000</vsid>
