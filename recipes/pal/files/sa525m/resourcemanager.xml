@@ -43,7 +43,7 @@
     <device_profile>
         <in-device>
             <id>PAL_DEVICE_IN_HANDSET_MIC</id>
-            <back_end_name>MI2S-LPAIF-TX-PRIMARY</back_end_name>
+            <back_end_name>MI2S-LPAIF-TX-SECONDARY</back_end_name>
             <max_channels>2</max_channels>
             <channels>1</channels>
             <snd_device_name>handset-mic</snd_device_name>
@@ -72,7 +72,9 @@
                 <name>PAL_STREAM_VOICE_CALL</name>
                 <sidetone_mode>HW</sidetone_mode>
                 <devicePP-metadata>
+                <custom-config key="dm-ec">
                     <kvpair key="0xAD000000" value="0xAD000008"/>
+                </custom-config>
                     <!-- VOICE_FLUENCE_SMECNS -->
                     <!-- These key and value are derived from kvh2xml.h and should always be in sync with it -->
                 </devicePP-metadata>
@@ -169,7 +171,7 @@
         </in-device>
         <in-device>
             <id>PAL_DEVICE_IN_WIRED_HEADSET</id>
-            <back_end_name>MI2S-LPAIF-TX-PRIMARY</back_end_name>
+            <back_end_name>MI2S-LPAIF-TX-TERTIARY</back_end_name>
             <max_channels>1</max_channels>
             <channels>1</channels>
             <snd_device_name>headset-mic</snd_device_name>
@@ -198,7 +200,9 @@
                 <name>PAL_STREAM_VOICE_CALL</name>
                 <sidetone_mode>HW</sidetone_mode>
                 <devicePP-metadata>
+                <custom-config key="dm-ec">
                     <kvpair key="0xAD000000" value="0xAD000008"/>
+                </custom-config>
                     <!-- VOICE_FLUENCE_SMECNS -->
                     <!-- These key and value are derived from kvh2xml.h and should always be in sync with it -->
                 </devicePP-metadata>
@@ -228,23 +232,23 @@
         </out-device>
         <out-device>
             <id>PAL_DEVICE_OUT_HANDSET</id>
-            <back_end_name>MI2S-LPAIF-RX-PRIMARY</back_end_name>
+            <back_end_name>MI2S-LPAIF-RX-SECONDARY</back_end_name>
             <max_channels>2</max_channels>
             <channels>1</channels>
             <snd_device_name>handset</snd_device_name>
         </out-device>
         <out-device>
             <id>PAL_DEVICE_OUT_WIRED_HEADPHONE</id>
-            <back_end_name>MI2S-LPAIF-RX-PRIMARY</back_end_name>
+            <back_end_name>MI2S-LPAIF-RX-TERTIARY</back_end_name>
             <max_channels>2</max_channels>
-            <channels>2</channels>
+            <channels>1</channels>
             <snd_device_name>headphones</snd_device_name>
         </out-device>
         <out-device>
             <id>PAL_DEVICE_OUT_WIRED_HEADSET</id>
-            <back_end_name>MI2S-LPAIF-RX-PRIMARY</back_end_name>
+            <back_end_name>MI2S-LPAIF-RX-TERTIARY</back_end_name>
             <max_channels>2</max_channels>
-            <channels>2</channels>
+            <channels>1</channels>
             <snd_device_name>headphones</snd_device_name>
         </out-device>
         <out-device>
