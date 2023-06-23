@@ -169,6 +169,13 @@
                 <id>PAL_DEVICE_OUT_BLUETOOTH_SCO</id>
             </ec_rx_device>
         </in-device>
+            <in-device>
+            <id>PAL_DEVICE_IN_PROXY</id>
+            <back_end_name>PCM_RT_PROXY-TX-1</back_end_name>
+            <max_channels>2</max_channels>
+            <channels>1</channels>
+            <snd_device_name>afe-proxy</snd_device_name>
+        </in-device>
         <in-device>
             <id>PAL_DEVICE_IN_WIRED_HEADSET</id>
             <back_end_name>MI2S-LPAIF-TX-TERTIARY</back_end_name>
@@ -236,6 +243,15 @@
             <max_channels>2</max_channels>
             <channels>1</channels>
             <snd_device_name>handset</snd_device_name>
+        </out-device>
+            <out-device>
+            <id>PAL_DEVICE_OUT_PROXY</id>
+            <back_end_name>PCM_RT_PROXY-RX-1</back_end_name>
+            <max_channels>2</max_channels>
+            <channels>2</channels>
+            <snd_device_name>afe-proxy</snd_device_name>
+            <fractional_sr>0</fractional_sr>
+            <samplerate>48000</samplerate>
         </out-device>
         <out-device>
             <id>PAL_DEVICE_OUT_WIRED_HEADPHONE</id>
