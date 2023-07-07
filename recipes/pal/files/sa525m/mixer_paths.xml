@@ -157,6 +157,9 @@
         <path name="headphones" />
     </path>
 
+   <path name="afe-proxy">
+   </path>
+
     <path name="voice-headset-mic">
         <path name="headset-mic" />
         <ctl name="ADC2 Volume" value="13" />
