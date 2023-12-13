@@ -1,4 +1,4 @@
-inherit autotools pkgconfig
+inherit autotools pkgconfig qprebuilt
 
 DESCRIPTION = "mcs"
 SECTION = "multimedia"
