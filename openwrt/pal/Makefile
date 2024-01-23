@@ -13,7 +13,7 @@ define Package/pal
   CATEGORY:=AUDIO
   MAINTAINER:=QTI MM Audio
   TITLE:=PAL
-  DEPENDS:= +media-headers +tinyalsa +tinycompress +ar-gsl +libexpat +glib2 +capiv2-headers +acdbdata +audio-route +agm +core-include
+  DEPENDS:= +media-headers +tinyalsa +tinycompress +ar-gsl +libexpat +glib2 +capiv2-headers +acdbdata +audio-route +core-include +agm-sw-binder-client
 endef
 
 define Package/pal/description
@@ -34,6 +34,7 @@ TARGET_CFLAGS += \
 	-I$(STAGING_DIR)/usr/include/spf/api/ar_utils/ \
 	-I$(STAGING_DIR)/usr/include/spf/api/vcpm/ \
 	-I$(STAGING_DIR)/usr/include/agm \
+	-I$(STAGING_DIR)/usr/include/agm-sw-binder-client \
 	-I$(TOPDIR)/src/audio/mm-audio-headers/acdbdata/ \
 	-I$(TOPDIR)/src/frameworks/audio_route/include/ \
 	-I$(LOCAL_SRC)/plugins/codecs/ \
