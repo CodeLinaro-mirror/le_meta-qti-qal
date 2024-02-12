@@ -21,7 +21,7 @@ EXTRA_OECONF += "--with-gecko=${STAGING_INCDIR}/gecko"
 EXTRA_OECONF += "--with-spf=${STAGING_INCDIR}/spf"
 EXTRA_OECONF += "--with-acdbdata=${STAGING_INCDIR}/acdbdata"
 
-do_install_append() {
+do_install:append() {
        install -d ${D}${sysconfdir}
        install -m 0755 ${WORKDIR}/${BASEMACHINE}/* ${D}${sysconfdir}/
 }
