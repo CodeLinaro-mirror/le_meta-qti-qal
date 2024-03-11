@@ -1,1 +1,1 @@
-QTIPAL:=pal audio-mcs
+QTIPAL:=pal
