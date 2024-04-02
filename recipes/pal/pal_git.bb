@@ -12,11 +12,10 @@ SRC_URI += "file://${BASEMACHINE}/"
 
 S = "${WORKDIR}/vendor/qcom/opensource/arpal-lx/"
 PR = "r0"
-DEPENDS = "media-headers tinyalsa tinycompress ar-gsl expat glib-2.0 capiv2-headers acdbdata audio-route spf ar-osal"
-DEPENDS += "${@bb.utils.contains_any('BASEMACHINE', 'sa525m', 'agm', '', d)}"
-DEPENDS += "${@bb.utils.contains_any('BASEMACHINE', 'sdxlemur', 'agm-sw-binder-client', '', d)}"
+DEPENDS = "media-headers tinyalsa tinycompress ar-gsl expat glib-2.0 capiv2-headers acdbdata audio-route agm-sw-binder-client spf ar-osal"
 
 EXTRA_OECONF += "${@bb.utils.contains_any('BASEMACHINE', 'sdxlemur', 'IS_SDXLEMUR_TARGET=true', '', d)}"
+EXTRA_OECONF += "${@bb.utils.contains_any('BASEMACHINE', 'sa525m', 'IS_SA525M_TARGET=true', '', d)}"
 EXTRA_OECONF += "--with-glib"
 EXTRA_OECONF += "--with-gecko=${STAGING_INCDIR}/gecko"
 EXTRA_OECONF += "--with-spf=${STAGING_INCDIR}/spf"
