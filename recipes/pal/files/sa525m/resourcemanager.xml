@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!-- Copyright (c) 2022-2023 Qualcomm Innovation Center, Inc. All rights reserved.-->
+<!-- Copyright (c) 2022-2024 Qualcomm Innovation Center, Inc. All rights reserved.-->
 <!-- SPDX-License-Identifier: BSD-3-Clause-Clear                                  -->
 <!-- Copyright (c) 2019-2020, The Linux Foundation. All rights reserved.          -->
 <!--                                                                              -->
@@ -175,6 +175,17 @@
             <max_channels>2</max_channels>
             <channels>1</channels>
             <snd_device_name>afe-proxy</snd_device_name>
+            <usecase>
+                <name>PAL_STREAM_VOICE_CALL</name>
+                <sidetone_mode>OFF</sidetone_mode>
+                <devicePP-metadata>
+                <custom-config key="dm-ec">
+                    <kvpair key="0xAD000000" value="0xAD000008"/>
+                </custom-config>
+                    <!-- VOICE_FLUENCE_SMECNS -->
+                    <!-- These key and value are derived from kvh2xml.h and should always be in sync with it -->
+                </devicePP-metadata>
+            </usecase>
         </in-device>
         <in-device>
             <id>PAL_DEVICE_IN_WIRED_HEADSET</id>

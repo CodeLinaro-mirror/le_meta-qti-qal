@@ -2,9 +2,9 @@ inherit autotools pkgconfig
 
 DESCRIPTION = "pal"
 SECTION = "multimedia"
-LICENSE = "BSD"
+LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/\
-${LICENSE};md5=3775480a712fc46a69647678acb234cb"
+${LICENSE};md5=550794465ba0ec5312d6919e203a55f9"
 
 FILESPATH =+ "${WORKSPACE}/:"
 SRC_URI  = "file://vendor/qcom/opensource/arpal-lx/"
@@ -17,11 +17,10 @@ DEPENDS = "media-headers tinyalsa tinycompress ar-gsl expat glib-2.0 capiv2-head
 EXTRA_OECONF += "${@bb.utils.contains_any('BASEMACHINE', 'sdxlemur', 'IS_SDXLEMUR_TARGET=true', '', d)}"
 EXTRA_OECONF += "${@bb.utils.contains_any('BASEMACHINE', 'sa525m', 'IS_SA525M_TARGET=true', '', d)}"
 EXTRA_OECONF += "--with-glib"
-EXTRA_OECONF += "--with-gecko=${STAGING_INCDIR}/gecko"
 EXTRA_OECONF += "--with-spf=${STAGING_INCDIR}/spf"
 EXTRA_OECONF += "--with-acdbdata=${STAGING_INCDIR}/acdbdata"
 
-do_install_append() {
+do_install:append() {
        install -d ${D}${sysconfdir}
        install -m 0755 ${WORKDIR}/${BASEMACHINE}/* ${D}${sysconfdir}/
 }
