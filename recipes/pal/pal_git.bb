@@ -22,7 +22,12 @@ EXTRA_OECONF += "--with-acdbdata=${STAGING_INCDIR}/acdbdata"
 
 do_install:append() {
        install -d ${D}${sysconfdir}
-       install -m 0755 ${WORKDIR}/${BASEMACHINE}/* ${D}${sysconfdir}/
+       install -m 0664 ${WORKDIR}/${BASEMACHINE}/resourcemanager.xml ${D}${sysconfdir}/
+       install -m 0660 ${WORKDIR}/${BASEMACHINE}/kvh2xml.xml ${D}${sysconfdir}/
+       install -m 0660 ${WORKDIR}/${BASEMACHINE}/mixer_paths.xml ${D}${sysconfdir}/
+       install -m 0440 ${WORKDIR}/${BASEMACHINE}/hw_ep_info.xml ${D}${sysconfdir}/
+       
+       chown root:audio ${D}${sysconfdir}/mixer_paths.xml
 }
 
 SOLIBS = ".so"
