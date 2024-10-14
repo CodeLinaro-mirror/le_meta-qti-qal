@@ -22,6 +22,11 @@ EXTRA_OECONF += "--with-acdbdata=${STAGING_INCDIR}/acdbdata"
 
 do_install:append() {
        install -d ${D}${sysconfdir}
+       install -m 0755 ${WORKDIR}/${BASEMACHINE}/* ${D}${sysconfdir}/
+}
+
+do_install:append:sa525m(){
+       install -d ${D}${sysconfdir}
        install -m 0664 ${WORKDIR}/${BASEMACHINE}/resourcemanager.xml ${D}${sysconfdir}/
        install -m 0660 ${WORKDIR}/${BASEMACHINE}/kvh2xml.xml ${D}${sysconfdir}/
        install -m 0660 ${WORKDIR}/${BASEMACHINE}/mixer_paths.xml ${D}${sysconfdir}/
