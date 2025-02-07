@@ -16,6 +16,7 @@ DEPENDS = "media-headers tinyalsa tinycompress ar-gsl expat glib-2.0 capiv2-head
 
 EXTRA_OECONF += "${@bb.utils.contains_any('BASEMACHINE', 'sdxlemur', 'IS_SDXLEMUR_TARGET=true', '', d)}"
 EXTRA_OECONF += "${@bb.utils.contains_any('BASEMACHINE', 'sa525m', 'IS_SA525M_TARGET=true', '', d)}"
+EXTRA_OECONF += "${@bb.utils.contains_any('BASEMACHINE', 'sa510m', 'IS_SA510M_TARGET=true', '', d)}"
 EXTRA_OECONF += "--with-glib"
 EXTRA_OECONF += "--with-spf=${STAGING_INCDIR}/spf"
 EXTRA_OECONF += "--with-acdbdata=${STAGING_INCDIR}/acdbdata"
