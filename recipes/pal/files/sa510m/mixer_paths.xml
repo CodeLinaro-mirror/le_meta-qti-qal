@@ -65,6 +65,8 @@
     <ctl name="SLIM RX4 MUX" value="AIF1_PB" />
     <ctl name="SLIM RX3 MUX" value="AIF1_PB" />
     <ctl name="CLASS_H_DSM MUX" value="ZERO" />
+    <ctl name="HP Playback Volume" value="9 9" />
+    <ctl name="HPCOM Playback Volume" value="9 9" />
 
     <!-- These are actual sound device specific mixer settings -->
     <path name="adc2">
