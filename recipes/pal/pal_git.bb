@@ -26,6 +26,11 @@ do_install:append() {
        install -m 0755 ${WORKDIR}/${BASEMACHINE}/* ${D}${sysconfdir}/
 }
 
+do_install:append:sa510m() {
+       install -d ${D}${sysconfdir}
+       install -m 0644 ${WORKDIR}/${BASEMACHINE}/* ${D}${sysconfdir}/
+}
+
 do_install:append:sa525m(){
        install -d ${D}${sysconfdir}
        install -m 0664 ${WORKDIR}/${BASEMACHINE}/resourcemanager.xml ${D}${sysconfdir}/
