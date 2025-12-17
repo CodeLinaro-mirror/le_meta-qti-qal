@@ -1,6 +1,7 @@
 inherit autotools pkgconfig
 
-DESCRIPTION = "pal"
+DESCRIPTION = "Platform Abstraction Layer (PAL) userspace audio framework for managing devices,
+routes"
 SECTION = "multimedia"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/\
