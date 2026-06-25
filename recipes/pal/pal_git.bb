@@ -14,7 +14,7 @@ S = "${WORKDIR}/vendor/qcom/opensource/arpal-lx/"
 PR = "r0"
 DEPENDS = "media-headers tinyalsa tinycompress ar-gsl expat glib-2.0 capiv2-headers acdbdata audio-route agm-sw-binder-client spf ar-osal"
 PACKAGECONFIG += "${@bb.utils.contains('MACHINE_FEATURES', 'dlt-logging', 'dlt_logging_enabled', '', d)}"
-PACKAGECONFIG[dlt_logging_enabled] = "--with-dltlogging,--without-dltlogging,dlt-daemon"
+PACKAGECONFIG[dlt_logging_enabled] = "--with-dltlogging, ,dlt-daemon"
 
 EXTRA_OECONF += "${@bb.utils.contains_any('BASEMACHINE', 'sdxlemur', 'IS_SDXLEMUR_TARGET=true', '', d)}"
 EXTRA_OECONF += "${@bb.utils.contains_any('BASEMACHINE', 'sa525m', 'IS_SA525M_TARGET=true', '', d)}"
