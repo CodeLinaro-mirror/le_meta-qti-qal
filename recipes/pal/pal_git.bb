@@ -18,8 +18,12 @@ EXTRA_OECONF += "${@bb.utils.contains_any('BASEMACHINE', 'sdxlemur', 'IS_SDXLEMU
 EXTRA_OECONF += "${@bb.utils.contains_any('BASEMACHINE', 'sa525m', 'IS_SA525M_TARGET=true', '', d)}"
 EXTRA_OECONF += "${@bb.utils.contains_any('BASEMACHINE', 'sa510m', 'IS_SA510M_TARGET=true', '', d)}"
 EXTRA_OECONF += "--with-glib"
+EXTRA_OECONF += "--with-openwrt"
 EXTRA_OECONF += "--with-spf=${STAGING_INCDIR}/spf"
 EXTRA_OECONF += "--with-acdbdata=${STAGING_INCDIR}/acdbdata"
+#EXTRA_OECONF += "CPPFLAGS+="-I${STAGING_INCDIR}/capiv2_headers""
+CPPFLAGS += '-I${STAGING_INCDIR}/capiv2_headers \
+-I${STAGING_INCDIR}/agm'
 
 do_install:append() {
        install -d ${D}${sysconfdir}
